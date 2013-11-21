@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>jQuery Connectors - Example</title>
+		<!-- JQUERY NEEDED -->
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<!-- IMPORT JQUERY.CONNECTORS -->
+		<script src="./jquery.connectors.0.1.0.js"></script>
+		<style>
+			html{
+				background-color: #999;
+			}
+			body{
+				width:70%;
+				height: 100%;
+				font-family: sans-serif;
+				background-color: #fff;
+			}
+			table{
+				margin: 1em 0;
+				position: relative;
+				z-index: 1000;
+			}
+			.table1{
+				margin-left: 25%;
+				float: left;
+			}
+			.table2{
+				margin-right: 25%;
+				float: right;
+			}
+			td{
+				padding: 1em;
+				border: 1px solid #000;
+				border-spacing: 1em;
+			}
+			.chart{
+				width: 100%;
+				float: left;
+			}
+			.box{
+				width: auto;
+				float: left;
+				padding: 1em 50px;
+				border: solid 1px #000;
+				background-color: #fff;
+				margin:20px 50px;
+				text-align: center;
+			}
+			.multibox{
+				width: 25%;
+				margin: 0 100px;
+				padding: 0.5em;
+			}
+			.multibox .box{
+				width: 80%;
+				padding : 1em 2%;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="chart">
+				<table class="table1">
+					<tr><td class="item11">+</td></tr>
+					<tr><td class="item12">+</td></tr>
+					<tr><td class="item13">+</td></tr>
+					<tr><td class="item14">+</td></tr>
+					<tr><td class="item15">+</td></tr>
+				</table>
+				<table class="table2">
+					<tr><td class="item21">+</td></tr>
+					<tr><td class="item22">+</td></tr>
+					<tr><td class="item23">+</td></tr>
+					<tr><td class="item24">+</td></tr>
+					<tr><td class="item25">+</td></tr>
+				</table>
+			</div>
+			<div class="chart">
+				<div class="box box1">+</div>
+				<div class="box box2">+</div>
+				<div class="multibox box">
+					<div class="box box3">+</div>
+					<div class="box box4">+</div>
+				</div>
+			</div>
+		</div>
+		<script src="./example.js"></script>
+	</body>
+</html>
