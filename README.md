@@ -9,27 +9,37 @@ Just dowload it and display the exmaple.html in your browser
 Usage
 -----
 
-1. just import the js file in your project and call :
+1. Import the lib in your page (¡¡ after the jquery import !!):
+
+```html
+<script src="jquery.connectors.0.1.0.min.js"></script>
+```
+
+2. Call the method and let’s connect jQuery stuff !
+
 ```javascript 
-        $(".thing").connect(
-                $(".other") ,
-                { x:0 , y:0 } ,
-                { x:0 , y:0 } ,
-                { 'border-top' : 'solid 1px red'});
+$(".thing").connect(
+    $(".other") ,
+    { x:0 , y:0 } ,
+    { x:0 , y:0 } ,
+    { 'border-top' : 'solid 1px red'}
+);
 ```
 
 Warning
 -------
  - Compatibility : Firefox, Chrome, Safari, Opera, IE>=9
- - Support connection between one sized jquery object :
+ - Support only connection between one sized jquery object :
 
 The call :
+
 ```javascript
-        A.connect(B , { x:0 , y:0 } , { x:0 , y:0 } , { 'border-top' : '2px solid red' });
+A.connect(B , { x:0 , y:0 } , { x:0 , y:0 } , { 'border-top' : '2px solid red' });
 ```
 Is OK if :
+
 ```javascript
-        A.size() == B.size() == 1
+A.size() == B.size() == 1
 ```
  - If your page layout change dynamically, don't forget to reconnect all connectors (remove + connect)
 
