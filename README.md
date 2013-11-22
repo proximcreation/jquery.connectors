@@ -25,7 +25,7 @@ Warning
 
 The call :
 ```javascript
-        $(A).connect(B , { x:0 , y:0 } , { x:0 , y:0 } , { 'border-top' : '2px solid red' });
+        A.connect(B , { x:0 , y:0 } , { x:0 , y:0 } , { 'border-top' : '2px solid red' });
 ```
 Is OK if :
 ```javascript
