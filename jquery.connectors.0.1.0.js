@@ -8,10 +8,33 @@
 	 * @param offset2 = {x:float, y:float} : an offset from the center of the param object
 	 */
 	$.fn.connect = function(o2, offset1, offset2, style) {
+		// Variable and parameters check
 		var o1 = this;
+		if(!offset1){
+			var offset1 = {x:0 , y:0};
+		} else {
+			offset1.x = (offset1.x)?offset1.x:0;
+			offset1.y = (offset1.y)?offset1.y:0;
+		}
+		if(!offset2){
+			var offset2 = {x:0 , y:0};
+		} else {
+			offset2.x = (offset2.x)?offset2.x:0;
+			offset2.y = (offset2.y)?offset2.y:0;
+		}
+		if(!style){
+			var style = {'border-top':'#000 1px solid'};
+		}
+
+		// Body preparation (must not be static)
+		var bodyCssPos = $("body").css('position');
+		if(bodyCssPos == 'static'){
+			$("body").css('position','relative');
+		}
+
+		// Creation of the connector object
 		var conClass = 'connector' + ($('.connector').size() + 1);
 		$("body").append('<div class="connector ' + conClass + '"></div>');
-		$("body").css('position','relative');
 		var connector = $("." + conClass);
 
 		var O1 = {
@@ -33,6 +56,7 @@
 			width : O1O2.d + "px",
 			position:'absolute',
 		});
+
 		for(v in style){
 			connector.css(v, style[v]);
 		}
@@ -40,25 +64,21 @@
 		var cH = connector.realHeight();// height of the connector
 
 		var navig = browser();
-		if(browser()[0]=="MSIE" && browser()[1]<9){
-			var lCY = Math.min(O1.y, O2.y) - O1.h/2;
-			var lCX = Math.min(O1.x, O2.x) - O1.w/2;
-
+		if(browser()[0]=="MSIE" && browser()[1]<9){ // FOR IE < 9 (TODO test
+			var lCY = O1.y - cH/2;
+			var lCX = O1.x;
 			connector.css("zoom", "1");
-			if (O1.y < O2.y) {
-				rotateIE(connector, lAd);
-			} else {
-				rotateIE(connector, -lAd);
-			}
-		} else {
+				rotateIE(connector, O1O2.ad);
+		}
+		else { // FOR ALL OTHER
 			var lCY = (O1.y * 1 + O2.y * 1) / 2 - cH/2;
 			var lCX = (O1.x + O2.x - O1O2.d)/2;
 			connector.css({
-				"transform" : "rotate(" + O1O2.ad + "deg)",
-				"-moz-transform" : "rotate(" + O1O2.ad + "deg)",
-				"-webkit-transform" : "rotate(" + O1O2.ad + "deg)",
-				"-o-transform" : "rotate(" + O1O2.ad + "deg)",
-				"-ms-transform" : "rotate(" + O1O2.ad + "deg)"
+				"transform"			: "rotate(" + O1O2.ad + "deg)",
+				"-moz-transform"	: "rotate(" + O1O2.ad + "deg)",
+				"-webkit-transform"	: "rotate(" + O1O2.ad + "deg)",
+				"-o-transform"		: "rotate(" + O1O2.ad + "deg)",
+				"-ms-transform"		: "rotate(" + O1O2.ad + "deg)"
 			});
 		}
 		connector.css({
