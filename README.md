@@ -12,7 +12,7 @@ Usage
 1. Import the lib in your page (¡¡ after the jquery import !!):
 
 ```html
-<script src="jquery.connectors.0.1.0.min.js"></script>
+<script src="jquery.connectors.min.js"></script>
 ```
 2. Call the method and let’s connect jQuery stuff !
 
